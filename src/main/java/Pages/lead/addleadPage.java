@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.helper.GenerateData;
 import webdriver.helper.Link;
@@ -110,72 +111,82 @@ public class addleadPage {
     public addleadPage(WebDriver driver)
     {
         this.driver =driver;
-        wait = new WebDriverWait(driver, 20);
+        wait = new WebDriverWait(driver, 200);
         PageFactory.initElements(driver, this);
     }
 
-    public void addlead1(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead) throws Throwable{
-        Thread.sleep(1000);
+    public void addlead1(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead) {
+        WebDriverWait wait = new WebDriverWait(driver, 30000);
+        wait.until(ExpectedConditions.elementToBeClickable(btnadd));
         btnadd.click();
         btnaddLead.click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(NameLeadID));
         NameLeadID.sendKeys(nameLead);
         PhoneLeadID.sendKeys(PhoneLead);
         MailLeadID.sendKeys(Maillead);
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(WebLeadID));
         WebLeadID.sendKeys(WebLead);
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(FanLeadID));
         FanLeadID.sendKeys(FanLead);
     }
 
-    public void addlead2(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead) throws Throwable {
-        Thread.sleep(1000);
+    public void addlead2(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead)  {
+        wait.until(ExpectedConditions.elementToBeClickable(btnadd));
         btnadd.click();
         btnaddLead.click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(NameLeadID));
         NameLeadID.sendKeys(nameLead);
         PhoneLeadID.sendKeys(PhoneLead);
         MailLeadID.sendKeys(Maillead);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(NeedLeadID));
         NeedLeadID.click();
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(NeedLeadID));
         Need.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(WebLeadID));
         WebLeadID.sendKeys(WebLead);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(FanLeadID));
         FanLeadID.sendKeys(FanLead);
     }
-    public void editlead(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead) throws Throwable{
-        Thread.sleep(2000);
+    public void editlead(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead) {
+        wait.until(ExpectedConditions.elementToBeClickable(NameLeadID));
         NameLeadID.clear();
         NameLeadID.sendKeys(nameLead);
+        wait.until(ExpectedConditions.elementToBeClickable(PhoneLeadID));
         PhoneLeadID.clear();
         PhoneLeadID.sendKeys(PhoneLead);
+        wait.until(ExpectedConditions.elementToBeClickable(MailLeadID));
         MailLeadID.clear();
         MailLeadID.sendKeys(Maillead);
+        wait.until(ExpectedConditions.elementToBeClickable(editbtlead));
         editweblead.clear();
         editweblead.sendKeys(WebLead);
+        wait.until(ExpectedConditions.elementToBeClickable(editfanlead));
         editfanlead.clear();
         editfanlead.sendKeys(FanLead);
     }
     public void editleadweb( String WebLead, String FanLead) throws Throwable{
-        Thread.sleep(4000);
+        wait.until(ExpectedConditions.elementToBeClickable(editweblead));
         editweblead.clear();
         editweblead.sendKeys(WebLead);
+        wait.until(ExpectedConditions.elementToBeClickable(editfanlead));
         editfanlead.clear();
         editfanlead.sendKeys(FanLead);
     }
     public void editleadneed(String nameLead, String PhoneLead, String Maillead, String WebLead, String FanLead) throws Throwable{
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(NameLeadID));
+        NameLeadID.click();
         NameLeadID.clear();
         NameLeadID.sendKeys(nameLead);
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(PhoneLeadID));
         PhoneLeadID.clear();
         PhoneLeadID.sendKeys(PhoneLead);
+        wait.until(ExpectedConditions.elementToBeClickable(MailLeadID));
         MailLeadID.clear();
         MailLeadID.sendKeys(Maillead);
+        wait.until(ExpectedConditions.elementToBeClickable(editweblead));
         editweblead.clear();
         editweblead.sendKeys(WebLead);
+        wait.until(ExpectedConditions.elementToBeClickable(editfanlead));
         editfanlead.clear();
         editfanlead.sendKeys(FanLead);
         {
@@ -183,28 +194,30 @@ public class addleadPage {
             Actions builder = new Actions(driver);
             builder.moveToElement(element).perform();
         }
-        //clearneedlead.click();
         NeedLeadID.click();
-        Thread.sleep(4000);
+        wait.until(ExpectedConditions.elementToBeClickable(Need));
         Need.click();
     }
-    public void addlead() throws Throwable{
-        Thread.sleep(1000);
+    public void addlead(){
+        wait.until(ExpectedConditions.elementToBeClickable(btnadd));
         btnadd.click();
         btnaddLead.click();
     }
     public void btsavelead ()
     {
+        wait.until(ExpectedConditions.elementToBeClickable(SaveLead));
         SaveLead.click();
     }
     public void btcancel()
     {
+        wait.until(ExpectedConditions.elementToBeClickable(btcancel));
         btcancel.click();
     }
-    public void editlead () throws Throwable
+    public void btneditlead () throws Throwable
     {
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(LeadDetail));
         LeadDetail.click();
+        wait.until(ExpectedConditions.elementToBeClickable(editbtlead));
         editbtlead.click();
     }
     public boolean isDisplayed() {

@@ -1,4 +1,4 @@
-package stepdefinition.contact;
+package stepdefinition.Accout;
 
 import Pages.login.LoginPage;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.is;
 
-public class addcontact extends Basetest{
+public class addaccount extends Basetest{
     LoginPage loginPg;
     GenerateData gen = new GenerateData();
 

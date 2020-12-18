@@ -17,7 +17,8 @@ public class login extends Basetest {
 
     // Check login khi bỏ trống PASS
     @Test
-    public void TC_Login_01() throws Throwable{
+    public void TC_Login_01(){
+
         loginPg = new LoginPage(driver);
         loginPg.login1("", "");
         Assert.assertEquals(loginPg.login_error.getText(),"Vui lòng nhập mật khẩu");
@@ -26,7 +27,7 @@ public class login extends Basetest {
     }
     // Check login khi bỏ trống PASS
     @Test
-    public void TC_Login_02() throws Throwable{
+    public void TC_Login_02(){
         loginPg = new LoginPage(driver);
         loginPg.login1(User, "");
         Assert.assertEquals(loginPg.login_error.getText(),"Vui lòng nhập mật khẩu");
@@ -36,7 +37,7 @@ public class login extends Basetest {
 
     // Check login khi bỏ trống User
     @Test
-    public void TC_Login_03() throws Throwable{
+    public void TC_Login_03() {
         loginPg = new LoginPage(driver);
         loginPg.login1("", Pass);
         Assert.assertEquals(loginPg.login_error.getText(), "Vui lòng nhập mật khẩu");
@@ -57,7 +58,7 @@ public class login extends Basetest {
 
     // Check login khi nhập sai User
     @Test
-    public void TC_Login_05() throws Throwable{
+    public void TC_Login_05() {
         loginPg = new LoginPage(driver);
         loginPg.login1("hahaha", Pass);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -68,7 +69,7 @@ public class login extends Basetest {
 
     // Check login thành công
     @Test
-    public void TC_Login_06() throws Throwable{
+    public void TC_Login_06() {
         loginPg = new LoginPage(driver);
         dashboardPg = new dashboardPage(driver);
         loginPg.login1(User, Pass);

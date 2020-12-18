@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.helper.Link;
 
@@ -44,16 +45,20 @@ public class convertleadPage {
         PageFactory.initElements(driver, this);
     }
     public void ConvertLead (String Namedeal, String Valuedeal){
+        WebDriverWait wait = new WebDriverWait(driver, 30000);
+        wait.until(ExpectedConditions.elementToBeClickable(LeadDetail));
         LeadDetail.click();
+        wait.until(ExpectedConditions.elementToBeClickable(btconvert));
         btconvert.click();
         Name_deal.sendKeys(Namedeal);
         valuedeal.sendKeys(Valuedeal);
         btnconvertdeal.click();
     }
     public void ConvertLeadfail (String cont, String mobi, String mail, String Namedeal, String Valuedeal) throws Throwable{
+        wait.until(ExpectedConditions.elementToBeClickable(LeadDetail));
         LeadDetail.click();
         btconvert.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(contact));
         contact.clear();
         contact.sendKeys(cont);
         mobilelh.clear();

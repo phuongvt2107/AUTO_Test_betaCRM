@@ -29,6 +29,9 @@ public class DeleteLeadPage {
     @FindBy(xpath = "/html/body/div[10]/div/div/div[3]/button[2]")
     public WebElement btnok;
 
+    @FindBy(xpath = "/html/body/div[10]/div/div/div[3]/button[1]")
+            public WebElement btnabort;
+
     WebDriver driver;
     WebDriverWait wait;
     Link links;
@@ -40,24 +43,28 @@ public class DeleteLeadPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void Deletelead () throws Throwable{
-        Thread.sleep(1000);
+    public void Deletelead (){
+        WebDriverWait wait = new WebDriverWait(driver, 30000);
+        wait.until(ExpectedConditions.elementToBeClickable(menulead));
         menulead.click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(checkbox1));
         checkbox1.click();
-       btnDelete.click();
+        wait.until(ExpectedConditions.elementToBeClickable(btnDelete));
+        btnDelete.click();
     }
-    public void Deleteleadall () throws Throwable{
-        WebDriverWait wait = new WebDriverWait(driver, 20000);
-        Thread.sleep(1000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) checkboxall));
+    public void Deleteleadall () {
+        wait.until(ExpectedConditions.elementToBeClickable(menulead));
         menulead.click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(checkboxall));
         checkboxall.click();
         btnDelete.click();
     }
     public void confirm () throws Throwable{
+        wait.until(ExpectedConditions.elementToBeClickable(btnok));
         btnok.click();
     }
-
+    public void Abort () throws Throwable{
+        wait.until(ExpectedConditions.elementToBeClickable(btnabort));
+        btnabort.click();
+    }
 }

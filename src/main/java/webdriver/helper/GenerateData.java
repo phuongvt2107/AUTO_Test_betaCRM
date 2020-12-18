@@ -47,7 +47,7 @@ public class GenerateData {
     public String Email() {
         int mailid_point = random.nextInt(26);
         int domain_point = random.nextInt(_domain.length);
-        return String.format("%s%s%s%s%s%s%s%s", _mailid[mailid_point], _mailid[mailid_point], _mailid[mailid_point], _mailid[mailid_point], _mailid[mailid_point], _mailid[mailid_point], Phones[creatrandumPhone()], _domain[domain_point]);
+        return String.format("%s%s%s%s%s%s%s%s", _mailid[mailid_point], Phones[creatrandumPhone()], _mailid[mailid_point], Phones[creatrandumPhone()], _mailid[mailid_point], _mailid[mailid_point], Phones[creatrandumPhone()], _domain[domain_point]);
     }
 
     public String web() {

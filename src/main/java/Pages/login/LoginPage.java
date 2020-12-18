@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.helper.Link;
 import Pages.dashboard.dashboardPage;
 
@@ -32,8 +34,9 @@ public class LoginPage {
         this.driver =driver;
         PageFactory.initElements(driver, this);
     }
-    public dashboardPage login1(String User, String Pass)throws Throwable{
-        Thread.sleep(1000);
+    public dashboardPage login1(String User, String Pass){
+        WebDriverWait wait = new WebDriverWait(driver, 30000);
+        wait.until(ExpectedConditions.elementToBeClickable(crm_login_account));
         crm_login_account.sendKeys(User);
         crm_login_password.sendKeys(Pass);
         crm_button_login.click();
